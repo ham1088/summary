@@ -1,3 +1,4 @@
+import django
 from django.db import models
 from datetime import datetime
 from simple_history.models import HistoricalRecords
@@ -8,8 +9,10 @@ class Department(models.Model):
     department_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
     timestamp = models.DateTimeField(default=datetime.now())
-def __str__(self):
-    return self.name
+
+    def __str__(self):
+        return self.name
+
 
 class Employee(models.Model):
     employee_id = models.AutoField(primary_key=True)
@@ -18,9 +21,8 @@ class Employee(models.Model):
     username = models.CharField(max_length=50, unique=True)
     email = models.CharField(max_length=100)
     department = models.ForeignKey(Department, models.DO_NOTHING)
-    timestamp = models.DateTimeField(default=datetime.now())
+    timestamp = models.DateTimeField(default=datetime.now)
     history = HistoricalRecords()
 
-
-def __str__(self):
-    return self.first_name
+    def __str__(self):
+        return self.first_name

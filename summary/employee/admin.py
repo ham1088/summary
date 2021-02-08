@@ -1,16 +1,16 @@
 from django.contrib import admin
 from .models import Employee, Department
-
+from simple_history.admin import SimpleHistoryAdmin
 
 # Register your models here.
 
-class EmployeeAdmin(admin.ModelAdmin):
+class EmployeeAdmin(SimpleHistoryAdmin):
     list_display = ['first_name', 'last_name', 'department']
     list_filter = ['department']
 
 
 
-class DepartmentAdmin(admin.ModelAdmin):
+class DepartmentAdmin(SimpleHistoryAdmin):
     pass
 
 

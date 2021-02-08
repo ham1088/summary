@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'employee',
-    'simple-history',
+    'simple_history',
 ]
 
 MIDDLEWARE = [
